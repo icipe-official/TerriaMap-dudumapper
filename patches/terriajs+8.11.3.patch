@@ -1,0 +1,159 @@
+diff --git a/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/MapCredits.tsx b/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/MapCredits.tsx
+index 78adbad..29c8deb 100644
+--- a/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/MapCredits.tsx
++++ b/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/MapCredits.tsx
+@@ -1,59 +1,20 @@
+-import { reaction } from "mobx";
+ import { observer } from "mobx-react";
+-import { FC, useCallback, useEffect, useState } from "react";
+-import { useTranslation } from "react-i18next";
++import { FC } from "react";
+ import GlobeOrMap from "../../../../Models/GlobeOrMap";
+ import { SearchBarModel } from "../../../../Models/SearchProviders/SearchBarModel";
+-import { ICredit } from "./Credit.type";
+-import { Credits } from "./Credits";
+ import { CreditsContainer } from "./CreditsContainer";
+-import { DataAttributionModal } from "./DataAttribution/DataAttributionModal";
+ import { MapCreditLogo } from "./MapCreditLogo";
+-import { Spacer } from "./Spacer";
+ import { TerriaLogo } from "./TerriaLogo";
+ 
+ interface IMapCreditsProps {
+   hideTerriaLogo: boolean;
+-  credits?: ICredit[];
++  credits?: any;
+   currentViewer: GlobeOrMap;
+   searchBarModel: SearchBarModel;
+ }
+ 
+ export const MapCredits: FC<IMapCreditsProps> = observer(
+-  ({ currentViewer, hideTerriaLogo, credits, searchBarModel }) => {
+-    const { t } = useTranslation();
+-    const [dataAttributionVisible, setDataAttributionVisible] = useState(false);
+-
+-    const searchAttributions = searchBarModel.locationSearchProvidersArray
+-      .map((provider) => {
+-        return provider.attributions?.flat();
+-      })
+-      .flat()
+-      .filter((attribution) => !!attribution);
+-
+-    const showDataAttribution = useCallback(() => {
+-      setDataAttributionVisible(true);
+-    }, [setDataAttributionVisible]);
+-
+-    const hideDataAttribution = useCallback(() => {
+-      setDataAttributionVisible(false);
+-    }, [setDataAttributionVisible]);
+-
+-    useEffect(() => {
+-      return reaction(
+-        () => currentViewer.attributions.length,
+-        () => {
+-          if (
+-            currentViewer.attributions &&
+-            currentViewer.attributions.length === 0
+-          ) {
+-            hideDataAttribution();
+-          }
+-        }
+-      );
+-      /* eslint-disable-next-line react-hooks/exhaustive-deps */
+-    }, [currentViewer]);
+-
++  ({ currentViewer, hideTerriaLogo }) => {
+     if (currentViewer.type === "none") {
+       return <CreditsContainer />;
+     }
+@@ -62,22 +23,6 @@ export const MapCredits: FC<IMapCreditsProps> = observer(
+       <CreditsContainer>
+         {!hideTerriaLogo ? <TerriaLogo /> : null}
+         <MapCreditLogo currentViewer={currentViewer} />
+-        <Credits credits={credits} />
+-        <Spacer />
+-        {(currentViewer.attributions &&
+-          currentViewer.attributions.length > 0) ||
+-        currentViewer.attributions.length > 0 ? (
+-          <a onClick={showDataAttribution}>
+-            {t("map.extraCreditLinks.credits")}
+-          </a>
+-        ) : null}
+-        {dataAttributionVisible ? (
+-          <DataAttributionModal
+-            closeModal={hideDataAttribution}
+-            attributions={currentViewer.attributions}
+-            searchAttributions={searchAttributions}
+-          />
+-        ) : null}
+       </CreditsContainer>
+     );
+   }
+diff --git a/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/TerriaLogo.tsx b/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/TerriaLogo.tsx
+index 90a99f3..02b3c62 100644
+--- a/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/TerriaLogo.tsx
++++ b/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/TerriaLogo.tsx
+@@ -1,6 +1,6 @@
+ import { FC } from "react";
+ import Box from "../../../../Styled/Box";
+-import logo from "../../../../../wwwroot/images/terria-watermark.svg";
++const logo = "images/icipe-logo.png";
+ 
+ export const TerriaLogo: FC = () => {
+   return (
+@@ -8,9 +8,21 @@ export const TerriaLogo: FC = () => {
+       as={"a"}
+       target="_blank"
+       rel="noopener noreferrer"
+-      href="https://terria.io/"
++      href="/"
++      css={{
++        marginLeft: "16px"
++      }}
+     >
+-      <img css={{ height: "24px" }} src={logo} title="Built with Terria" />
++      <img
++        css={{
++          height: "24px",
++          background: "white",
++          padding: "3px 6px",
++          borderRadius: "10px"
++        }}
++        src={logo}
++        title="Home"
++      />
+     </Box>
+   );
+ };
+diff --git a/node_modules/terriajs/lib/ReactViews/Map/Panels/SharePanel/SharePanelContent.tsx b/node_modules/terriajs/lib/ReactViews/Map/Panels/SharePanel/SharePanelContent.tsx
+index 34860be..33adc2d 100644
+--- a/node_modules/terriajs/lib/ReactViews/Map/Panels/SharePanel/SharePanelContent.tsx
++++ b/node_modules/terriajs/lib/ReactViews/Map/Panels/SharePanel/SharePanelContent.tsx
+@@ -6,12 +6,10 @@ import Box from "../../../../Styled/Box";
+ import Spacing from "../../../../Styled/Spacing";
+ import Text from "../../../../Styled/Text";
+ import { useCallbackRef } from "../../../useCallbackRef";
+-import { AdvancedOptions } from "./AdvancedOptions";
+ import { canShorten } from "./BuildShareLink";
+ import { PrintSection } from "./Print/PrintSection";
+ import { shouldShorten as shouldShortenDefault } from "./SharePanel";
+ import { IShareUrlRef, ShareUrl, ShareUrlBookmark } from "./ShareUrl";
+-import { StyledHr } from "./StyledHr";
+ 
+ interface ISharePanelContentProps {
+   terria: Terria;
+@@ -64,15 +62,6 @@ export const SharePanelContent: FC<ISharePanelContentProps> = ({
+       </ShareUrl>
+       <Spacing bottom={2} />
+       <PrintSection viewState={viewState} />
+-      <StyledHr />
+-      <AdvancedOptions
+-        canShortenUrl={canShortenUrl}
+-        shouldShorten={shouldShorten}
+-        shouldShortenOnChange={shouldShortenOnChange}
+-        includeStoryInShare={includeStoryInShare}
+-        includeStoryInShareOnChange={includeStoryInShareOnChange}
+-        shareUrl={shareUrlRef}
+-      />
+     </Box>
+   );
+ };

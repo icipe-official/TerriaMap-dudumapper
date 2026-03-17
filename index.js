@@ -71,7 +71,7 @@ export default terria
     // Override the default document title with appName. Check first for default
     // title, because user might have already customized the title in
     // index.ejs
-    if (document.title === "Terria Map") {
+    if (document.title === "Dudu Mapper") {
       document.title = terria.appName;
     }
 

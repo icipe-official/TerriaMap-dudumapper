@@ -7,6 +7,11 @@ body {
 }
 
 :global {
+  button.tjs-help-button__helpBtn,
+  button.tjs-story-button__storyBtn {
+    display: none !important;
+  }
+
   @media print {
     .nationalmap-print-disclaimer {
       color: #000;
