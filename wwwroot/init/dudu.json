@@ -1,0 +1,127 @@
+{
+  "catalog": [
+    {
+      "name": "Dudu Mapper Models",
+      "type": "group",
+      "isOpen": true,
+      "members": [
+        {
+          "name": "CMP Model",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms",
+          "layers": "Dudu:CMP_Model",
+          "crs": "CRS:84",
+          "description": "Epidemiology model output for Turkana, Kenya.",
+          "info": [
+            {
+              "name": "Model",
+              "content": "Conway-Maxwell Poisson (CMP) model"
+            },
+            {
+              "name": "Coverage",
+              "content": "**Country:** Kenya  \n**Region:** Turkana"
+            },
+            {
+              "name": "Time",
+              "content": "**Year:** 2024  \n**Month:** 12"
+            },
+            {
+              "name": "Description",
+              "content": "Conway-Maxwell Poisson model July 2025 future predictions using the following variables: Sex, gender, age, minimum temperature, soil type, forest height, population density, LULC, greenness, wetness, brightness, distance to water bodies and NDVI."
+            },
+            {
+              "name": "Areas of high risk?",
+              "content": "No"
+            }
+          ]
+        },
+        {
+          "name": "GAM Model",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms",
+          "layers": "Dudu:GAM_Model",
+          "crs": "CRS:84",
+          "description": "Epidemiology model output for Turkana, Kenya.",
+          "info": [
+            {
+              "name": "Model",
+              "content": "Generalized Additive Model (GAM)"
+            },
+            {
+              "name": "Coverage",
+              "content": "**Country:** Kenya  \n**Region:** Turkana"
+            },
+            {
+              "name": "Time",
+              "content": "**Year:** 2024  \n**Month:** 12"
+            },
+            {
+              "name": "Description",
+              "content": "Generalized Additive Model February 2025 future predictions using the following variables: Sex, gender, age, minimum temperature, soil type, forest height, population density, LULC, greenness, wetness, brightness, distance to water bodies and NDVI."
+            },
+            {
+              "name": "Areas of high risk?",
+              "content": "Yes"
+            }
+          ]
+        },
+        {
+          "name": "GPR Model",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms",
+          "layers": "Dudu:GPR_Model",
+          "crs": "CRS:84",
+          "description": "Epidemiology model output for Turkana, Kenya.",
+          "info": [
+            {
+              "name": "Model",
+              "content": "Generalized Poisson Regression (GPR) model"
+            },
+            {
+              "name": "Coverage",
+              "content": "**Country:** Kenya  \n**Region:** Turkana"
+            },
+            {
+              "name": "Time",
+              "content": "**Year:** 2024  \n**Month:** 12"
+            },
+            {
+              "name": "Description",
+              "content": "Generalized Poisson Regression model January 2025 future predictions using the following variables: Sex, gender, age, minimum temperature, soil type, forest height, population density, LULC, greenness, wetness, brightness, distance to water bodies and NDVI."
+            },
+            {
+              "name": "Areas of high risk?",
+              "content": "No"
+            }
+          ]
+        },
+        {
+          "name": "AdaBoost Model",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms",
+          "layers": "Dudu:AdaBoost",
+          "crs": "CRS:84",
+          "info": [
+            {
+              "name": "Metadata/Publication",
+              "content": "For more information, see the publication: [https://doi.org/10.3389/fdgth.2025.1643314](https://doi.org/10.3389/fdgth.2025.1643314)"
+            }
+          ]
+        },
+        {
+          "name": "Ada Mboost",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms",
+          "layers": "Dudu:Ada_Mboost",
+          "crs": "CRS:84"
+        }
+      ]
+    }
+  ],
+  "homeCamera": {
+    "west": 33.9,
+    "south": -4.7,
+    "east": 41.9,
+    "north": 5.5
+  }
+}
