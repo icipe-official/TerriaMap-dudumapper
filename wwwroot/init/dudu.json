@@ -123,5 +123,9 @@
     "south": -4.7,
     "east": 41.9,
     "north": 5.5
+  },
+  "viewerMode": "3dSmooth",
+  "baseMaps": {
+    "defaultBaseMapId": "basemap-openstreetmap"
   }
 }
