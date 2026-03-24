@@ -8,9 +8,9 @@
         {
           "name": "CMP Model",
           "type": "wms",
-          "url": "https://test-dmmg.icipe.org/geoserver/wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:CMP_Model",
-          "crs": "CRS:84",
+          "crs": "EPSG:3857",
           "description": "Epidemiology model output for Turkana, Kenya.",
           "info": [
             {
@@ -38,9 +38,9 @@
         {
           "name": "GAM Model",
           "type": "wms",
-          "url": "https://test-dmmg.icipe.org/geoserver/wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:GAM_Model",
-          "crs": "CRS:84",
+          "crs": "EPSG:3857",
           "description": "Epidemiology model output for Turkana, Kenya.",
           "info": [
             {
@@ -68,9 +68,9 @@
         {
           "name": "GPR Model",
           "type": "wms",
-          "url": "https://test-dmmg.icipe.org/geoserver/wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:GPR_Model",
-          "crs": "CRS:84",
+          "crs": "EPSG:3857",
           "description": "Epidemiology model output for Turkana, Kenya.",
           "info": [
             {
@@ -98,9 +98,9 @@
         {
           "name": "AdaBoost Model",
           "type": "wms",
-          "url": "https://test-dmmg.icipe.org/geoserver/wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:AdaBoost",
-          "crs": "CRS:84",
+          "crs": "EPSG:3857",
           "info": [
             {
               "name": "Metadata/Publication",
@@ -111,9 +111,9 @@
         {
           "name": "Ada Mboost",
           "type": "wms",
-          "url": "https://test-dmmg.icipe.org/geoserver/wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:Ada_Mboost",
-          "crs": "CRS:84"
+          "crs": "EPSG:3857"
         }
       ]
     }

@@ -18,6 +18,7 @@
     "proj4ServiceBaseUrl": "proj4def/",
     "mobileDefaultViewerMode": "2d",
     "experimentalFeatures": true,
+    "useCesiumIonTerrain": false,
     "languageConfiguration": {
       "enabled": false,
       "debug": false,

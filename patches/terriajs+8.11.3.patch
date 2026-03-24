@@ -124,6 +124,38 @@ index 90a99f3..02b3c62 100644
      </Box>
    );
  };
+diff --git a/node_modules/terriajs/lib/ReactViews/Map/Panels/SettingPanel.tsx b/node_modules/terriajs/lib/ReactViews/Map/Panels/SettingPanel.tsx
+index 0353bdc..98266ca 100644
+--- a/node_modules/terriajs/lib/ReactViews/Map/Panels/SettingPanel.tsx
++++ b/node_modules/terriajs/lib/ReactViews/Map/Panels/SettingPanel.tsx
+@@ -216,12 +216,12 @@ const SettingPanel: FC = observer(() => {
+     ? t("settingPanel.terrain.showUndergroundFeatures")
+     : t("settingPanel.terrain.hideUndergroundFeatures");
+ 
+-  if (
++  // Only show the "3D Terrain" viewer if terrain is actually configured.
++  // Otherwise, hiding it prevents users selecting a broken terrain mode.
++  MapViewers["3d"].available = !!(
+     terria.configParameters.useCesiumIonTerrain ||
+     terria.configParameters.cesiumTerrainUrl
+-  ) {
+-    MapViewers["3d"].available = true;
+-  }
++  );
+ 
+   const supportsSide = isCesiumWithTerrain;
+ 
+@@ -266,7 +266,9 @@ const SettingPanel: FC = observer(() => {
+           <Text as="label">{t("settingPanel.mapView")}</Text>
+         </Box>
+         <FlexGrid gap={1} elementsNo={3}>
+-          {Object.entries(MapViewers).map(([key, viewerMode]) => (
++          {Object.entries(MapViewers)
++            .filter(([, viewerMode]) => viewerMode.available)
++            .map(([key, viewerMode]) => (
+             <SettingsButton
+               key={key}
+               isActive={key === currentViewer}
 diff --git a/node_modules/terriajs/lib/ReactViews/Map/Panels/SharePanel/SharePanelContent.tsx b/node_modules/terriajs/lib/ReactViews/Map/Panels/SharePanel/SharePanelContent.tsx
 index 34860be..33adc2d 100644
 --- a/node_modules/terriajs/lib/ReactViews/Map/Panels/SharePanel/SharePanelContent.tsx
