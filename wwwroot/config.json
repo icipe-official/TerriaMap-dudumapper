@@ -12,6 +12,12 @@
     "brandBarElements": [
       "<a target=\"_blank\" href=\"/\"><img src=\"images/icipe-logo.png\" height=\"52\" title=\"Version: {{version}}\" style=\"padding: 5px; background-color: white; border-radius: 15px;\" /></a>"
     ],
+    "brandBarSmallElements": [
+      "<a target=\"_blank\" href=\"/\"><img src=\"images/icipe-logo.png\" alt=\"icipe\" title=\"Version: {{version}}\" style=\"display: block; max-height: 32px; width: auto; padding: 3px; background-color: white; border-radius: 10px; box-sizing: content-box;\" /></a>"
+    ],
+    "theme": {
+      "logoSmallHeight": "44px"
+    },
     "hideTerriaLogo": false,
     "extraCreditLinks": [],
     "supportEmail": "help@icipe.org",

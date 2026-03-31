@@ -1,7 +1,7 @@
 {
   "catalog": [
     {
-      "name": "Dudu Mapper Models",
+      "name": "VL Turkana Models",
       "type": "group",
       "isOpen": true,
       "members": [
@@ -116,6 +116,80 @@
           "crs": "EPSG:3857"
         }
       ]
+    },
+    {
+      "name": "VL Endemicity",
+      "type": "group",
+      "isOpen": true,
+      "members": [
+        {
+          "name": "Kenya Epidemiology Heatmap",
+          "type": "csv",
+          "id": "kenya-epi-cases-csv",
+          "url": "data/processed_kenya_epi_data.csv",
+          "description": "Patient occurrence records loaded from the processed Kenya epidemiology CSV.",
+          "activeStyle": "vl-heat-look",
+          "styles": [
+            {
+              "id": "vl-heat-look",
+              "title": "VL Heatmap Look",
+              "latitudeColumn": "Latitude",
+              "longitudeColumn": "Longitude",
+              "color": {
+                "mapType": "constant",
+                "nullColor": "rgba(255,120,0,0.22)"
+              },
+              "point": {
+                "mapType": "constant",
+                "null": {
+                  "marker": "circle",
+                  "height": 22,
+                  "width": 22
+                }
+              },
+              "outline": {
+                "enabled": false
+              }
+            },
+            {
+              "id": "year-points",
+              "title": "Points by Year",
+              "latitudeColumn": "Latitude",
+              "longitudeColumn": "Longitude",
+              "color": {
+                "mapType": "bin",
+                "colorColumn": "Year",
+                "numberOfBins": 5,
+                "binColors": [
+                  "#ffe6cc",
+                  "#ffbe7d",
+                  "#ff8f3d",
+                  "#f35d1d",
+                  "#b53a00"
+                ]
+              },
+              "point": {
+                "mapType": "constant",
+                "null": {
+                  "marker": "circle",
+                  "height": 10,
+                  "width": 10
+                }
+              }
+            }
+          ],
+          "info": [
+            {
+              "name": "Source",
+              "content": "Local file: `wwwroot/data/processed_kenya_epi_data.csv`"
+            },
+            {
+              "name": "Map fields",
+              "content": "Uses `Latitude` and `Longitude` columns for point locations."
+            }
+          ]
+        }
+      ]
     }
   ],
   "homeCamera": {
@@ -124,7 +198,7 @@
     "east": 41.9,
     "north": 5.5
   },
-  "viewerMode": "3dSmooth",
+  "viewerMode": "2d",
   "baseMaps": {
     "defaultBaseMapId": "basemap-openstreetmap"
   }
