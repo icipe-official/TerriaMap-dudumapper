@@ -1,3 +1,98 @@
+diff --git a/node_modules/terriajs/lib/Models/Catalog/Ows/WebMapServiceCapabilitiesStratum.ts b/node_modules/terriajs/lib/Models/Catalog/Ows/WebMapServiceCapabilitiesStratum.ts
+--- a/node_modules/terriajs/lib/Models/Catalog/Ows/WebMapServiceCapabilitiesStratum.ts
++++ b/node_modules/terriajs/lib/Models/Catalog/Ows/WebMapServiceCapabilitiesStratum.ts
+@@ -445,15 +445,6 @@
+ 
+     let firstDataDescription: string | undefined;
+ 
+-    result.push(
+-      createStratumInstance(InfoSectionTraits, {
+-        name: i18next.t("models.webMapServiceCatalogItem.serviceDescription"),
+-        contentAsObject: this.capabilities.Service as JsonObject,
+-        // Hide big ugly table by default
+-        show: false
+-      })
+-    );
+-
+     const onlyHasSingleLayer = this.catalogItem.layersArray.length === 1;
+ 
+     if (onlyHasSingleLayer) {
+@@ -522,22 +513,6 @@
+     // Show the service abstract if there is one and if it isn't the Geoserver default "A compliant implementation..."
+     const service = this.capabilities && this.capabilities.Service;
+     if (service) {
+-      if (service.ContactInformation !== undefined) {
+-        result.push(
+-          createStratumInstance(InfoSectionTraits, {
+-            name: i18next.t("models.webMapServiceCatalogItem.serviceContact"),
+-            content: getServiceContactInformation(service.ContactInformation)
+-          })
+-        );
+-      }
+-
+-      result.push(
+-        createStratumInstance(InfoSectionTraits, {
+-          name: i18next.t("models.webMapServiceCatalogItem.getCapabilitiesUrl"),
+-          content: this.catalogItem.getCapabilitiesUrl
+-        })
+-      );
+-
+       if (
+         service &&
+         service.Abstract &&
+@@ -547,29 +522,7 @@
+         ) &&
+         service.Abstract !== firstDataDescription
+       ) {
+-        result.push(
+-          createStratumInstance(InfoSectionTraits, {
+-            name: i18next.t(
+-              "models.webMapServiceCatalogItem.serviceDescription"
+-            ),
+-            content: service.Abstract
+-          })
+-        );
+-      }
+-
+-      // Show the Access Constraints if it isn't "none" (because that's the default, and usually a lie).
+-      if (
+-        service.AccessConstraints &&
+-        !/^none$/i.test(service.AccessConstraints)
+-      ) {
+-        result.push(
+-          createStratumInstance(InfoSectionTraits, {
+-            name: i18next.t(
+-              "models.webMapServiceCatalogItem.accessConstraints"
+-            ),
+-            content: service.AccessConstraints
+-          })
+-        );
++        // Intentionally omit "Service Description" entries for this UI customisation.
+       }
+     }
+ 
+@@ -604,19 +557,12 @@
+       i18next.t("description.name"),
+       ...layerDescriptions,
+       i18next.t("preview.datasetDescription"),
+-      i18next.t("preview.serviceDescription"),
+-      i18next.t("models.webMapServiceCatalogItem.serviceDescription"),
+-      i18next.t("preview.resourceDescription"),
+       i18next.t("preview.licence"),
+-      i18next.t("preview.accessConstraints"),
+-      i18next.t("models.webMapServiceCatalogItem.accessConstraints"),
+       i18next.t("preview.author"),
+       i18next.t("preview.contact"),
+-      i18next.t("models.webMapServiceCatalogItem.serviceContact"),
+       i18next.t("preview.created"),
+       i18next.t("preview.modified"),
+-      i18next.t("preview.updateFrequency"),
+-      i18next.t("models.webMapServiceCatalogItem.getCapabilitiesUrl")
++      i18next.t("preview.updateFrequency")
+     ];
+   }
+ 
+
 diff --git a/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/MapCredits.tsx b/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/MapCredits.tsx
 index 78adbad..29c8deb 100644
 --- a/node_modules/terriajs/lib/ReactViews/Map/BottomBar/Credits/MapCredits.tsx
@@ -189,3 +284,489 @@ index 34860be..33adc2d 100644
      </Box>
    );
  };
+
+diff --git a/node_modules/terriajs/lib/ReactViews/Preview/DataPreviewUrl.jsx b/node_modules/terriajs/lib/ReactViews/Preview/DataPreviewUrl.jsx
+--- a/node_modules/terriajs/lib/ReactViews/Preview/DataPreviewUrl.jsx
++++ b/node_modules/terriajs/lib/ReactViews/Preview/DataPreviewUrl.jsx
+@@ -20,6 +20,12 @@
+   },
+ 
+   render() {
++    // UI customisation: we hide the "URL" section in Data Preview for WMS layers.
++    // (Requested by the project to avoid cluttering the preview panel.)
++    if (this.props.metadataItem.type === "wms") {
++      return null;
++    }
++
+     return (
+       <div>
+         <h4 className={Styles.h4}>{this.props.metadataItem.typeName} URL</h4>
+diff --git a/node_modules/terriajs/lib/ReactViews/Preview/Description.jsx b/node_modules/terriajs/lib/ReactViews/Preview/Description.jsx
+--- a/node_modules/terriajs/lib/ReactViews/Preview/Description.jsx
++++ b/node_modules/terriajs/lib/ReactViews/Preview/Description.jsx
+@@ -139,7 +139,7 @@
+ 
+         {!catalogItem.hideSource && (
+           <>
+-            {catalogItem.url && (
++            {catalogItem.url && catalogItem.type !== "wms" && (
+               <>
+                 <h4 className={Styles.h4}>{catalogItem.typeName} URL</h4>
+ 
+@@ -157,17 +157,16 @@
+                   />
+                 )}
+ 
+-                {catalogItem.type === "wms" ||
+-                  (catalogItem.type === "esri-mapServer" &&
+-                    defined(catalogItem.layers) && (
+-                      <p key="wms-layers">
+-                        {t("description.layerName")}
+-                        {(catalogItem.layers || "").split(",").length > 1
+-                          ? "s"
+-                          : ""}
+-                        : {catalogItem.layers}
+-                      </p>
+-                    ))}
++                {catalogItem.type === "esri-mapServer" &&
++                  defined(catalogItem.layers) && (
++                    <p key="wms-layers">
++                      {t("description.layerName")}
++                      {(catalogItem.layers || "").split(",").length > 1
++                        ? "s"
++                        : ""}
++                      : {catalogItem.layers}
++                    </p>
++                  )}
+ 
+                 {catalogItem.type === "wfs" && (
+                   <p key="wfs-typeNames">
+diff --git a/node_modules/terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.tsx b/node_modules/terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.tsx
+--- a/node_modules/terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.tsx
++++ b/node_modules/terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.tsx
+@@ -2,13 +2,12 @@
+ import "inobounce";
+ import { action } from "mobx";
+ import { observer } from "mobx-react";
+-import { FC, DragEvent, ReactNode, useEffect } from "react";
++import { FC, ReactNode, useEffect } from "react";
+ import { useTranslation } from "react-i18next";
+ import { DefaultTheme } from "styled-components";
+ import combine from "terriajs-cesium/Source/Core/combine";
+ import ViewState from "../../ReactViewModels/ViewState";
+ import Disclaimer from "../Disclaimer";
+-import DragDropFile from "../DragDropFile";
+ import ExplorerWindow from "../ExplorerWindow/ExplorerWindow";
+ import FeatureInfoPanel from "../FeatureInfo/FeatureInfoPanel";
+ import FeedbackForm from "../Feedback/FeedbackForm";
+@@ -57,24 +56,6 @@
+   (props) => {
+     const { t } = useTranslation();
+ 
+-    const acceptDragDropFile = action(() => {
+-      props.viewState.isDraggingDroppingFile = true;
+-      // if explorer window is already open, we open my data tab
+-      if (props.viewState.explorerPanelIsVisible) {
+-        props.viewState.openUserData();
+-      }
+-    });
+-
+-    const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
+-      if (!e.dataTransfer.types || !e.dataTransfer.types.includes("Files")) {
+-        return;
+-      }
+-      e.preventDefault();
+-      e.stopPropagation();
+-      e.dataTransfer.dropEffect = "copy";
+-      acceptDragDropFile();
+-    };
+-
+     const shouldUseMobileInterface = () =>
+       document.body.clientWidth < (props.minimumLargeScreenWidth ?? 768);
+ 
+@@ -156,7 +137,6 @@
+             css={`
+               ${props.viewState.disclaimerVisible && `filter: blur(10px);`}
+             `}
+-            onDragOver={handleDragOver}
+           >
+             <div
+               className={Styles.ui}
+@@ -278,7 +258,6 @@
+             >
+               <FeatureInfoPanel />
+             </div>
+-            <DragDropFile />
+             {showStoryPanel && (
+               <div
+                 className={classNames(
+diff --git a/node_modules/terriajs/lib/ReactViews/Map/MenuBar/MenuBar.jsx b/node_modules/terriajs/lib/ReactViews/Map/MenuBar/MenuBar.jsx
+--- a/node_modules/terriajs/lib/ReactViews/Map/MenuBar/MenuBar.jsx
++++ b/node_modules/terriajs/lib/ReactViews/Map/MenuBar/MenuBar.jsx
+@@ -6,7 +6,6 @@
+ import withControlledVisibility from "../../HOCs/withControlledVisibility";
+ import { useViewState } from "../../Context";
+ import LangPanel from "../Panels/LangPanel/LangPanel";
+-import SettingPanel from "../Panels/SettingPanel";
+ import SharePanel from "../Panels/SharePanel/SharePanel";
+ import ToolsPanel from "../Panels/ToolsPanel/ToolsPanel";
+ import StoryButton from "./StoryButton/StoryButton";
+@@ -66,9 +65,6 @@
+       <section className={classNames(Styles.flex)}>
+         <ul className={classNames(Styles.menu)}>
+           <li className={Styles.menuItem}>
+-            <SettingPanel />
+-          </li>
+-          <li className={Styles.menuItem}>
+             <HelpButton viewState={viewState} />
+           </li>
+ 
+diff --git a/node_modules/terriajs/lib/ReactViews/Mobile/MobileMenu.jsx b/node_modules/terriajs/lib/ReactViews/Mobile/MobileMenu.jsx
+--- a/node_modules/terriajs/lib/ReactViews/Mobile/MobileMenu.jsx
++++ b/node_modules/terriajs/lib/ReactViews/Mobile/MobileMenu.jsx
+@@ -6,7 +6,6 @@
+ 
+ import classNames from "classnames";
+ import MobileMenuItem from "./MobileMenuItem";
+-import SettingPanel from "../Map/Panels/SettingPanel";
+ import SharePanel from "../Map/Panels/SharePanel/SharePanel";
+ import { withTranslation } from "react-i18next";
+ 
+@@ -125,9 +124,6 @@
+             </div>
+           ))}
+           <div onClick={() => this.hideMenu()}>
+-            <SettingPanel />
+-          </div>
+-          <div onClick={() => this.hideMenu()}>
+             <SharePanel
+               terria={this.props.terria}
+               viewState={this.props.viewState}
+
+diff --git a/node_modules/terriajs/lib/ReactViewModels/ViewState.ts b/node_modules/terriajs/lib/ReactViewModels/ViewState.ts
+--- a/node_modules/terriajs/lib/ReactViewModels/ViewState.ts
++++ b/node_modules/terriajs/lib/ReactViewModels/ViewState.ts
+@@ -290,6 +290,7 @@
+   closeTour(): void {
+     this.currentTourIndex = -1;
+     this.showTour = false;
++    this.topElement = "FeatureInfo";
+   }
+   @action
+   previousTourPoint(): void {
+diff --git a/node_modules/terriajs/lib/ReactViews/Tour/TourOverlay.jsx b/node_modules/terriajs/lib/ReactViews/Tour/TourOverlay.jsx
+--- a/node_modules/terriajs/lib/ReactViews/Tour/TourOverlay.jsx
++++ b/node_modules/terriajs/lib/ReactViews/Tour/TourOverlay.jsx
+@@ -13,9 +13,6 @@
+  * element from being selectable.
+  */
+ const TourOverlay = ({ rectangle, onCancel }) => {
+-  const advance = () => {
+-    // this.props.helpViewState.advance = true;
+-  };
+   // const helpScreen = this.props.helpViewState.currentScreen;
+   if (!defined(rectangle)) {
+     console.log("no rectangle passed in, won't render overlay");
+@@ -91,7 +88,7 @@
+         }}
+         onClick={onCancel}
+       />
+-      <div className={Styles.clearOverlay} onClick={advance} />
++      <div className={Styles.clearOverlay} onClick={onCancel} />
+     </div>
+   );
+ };
+diff --git a/node_modules/terriajs/lib/ReactViews/Map/MapNavigation/Items/ToggleSplitterTool.ts b/node_modules/terriajs/lib/ReactViews/Map/MapNavigation/Items/ToggleSplitterTool.ts
+--- a/node_modules/terriajs/lib/ReactViews/Map/MapNavigation/Items/ToggleSplitterTool.ts
++++ b/node_modules/terriajs/lib/ReactViews/Map/MapNavigation/Items/ToggleSplitterTool.ts
+@@ -25,7 +25,11 @@
+ 
+   @computed
+   get visible() {
+-    return super.visible && this.viewState.terria.currentViewer.canShowSplitter;
++    return (
++      super.visible &&
++      this.viewState.terria.currentViewer.canShowSplitter &&
++      !this.viewState.terria.configParameters.disableSplitter
++    );
+   }
+ 
+   @computed
+
+diff --git a/node_modules/terriajs/lib/Models/Terria.ts b/node_modules/terriajs/lib/Models/Terria.ts
+--- a/node_modules/terriajs/lib/Models/Terria.ts
++++ b/node_modules/terriajs/lib/Models/Terria.ts
+@@ -248,6 +248,14 @@
+    */
+   disableMyLocation?: boolean;
+   disableSplitter?: boolean;
++  /**
++   * True to hide the "Take the tour" control (empty workbench, help panel, welcome message).
++   */
++  hideTakeTourButton?: boolean;
++  /**
++   * True to hide the "My Data" tab in the data catalogue / explorer window.
++   */
++  hideMyDataTab?: boolean;
+ 
+   disablePedestrianMode?: boolean;
+ 
+@@ -551,6 +559,8 @@
+     displayOneBrand: 0,
+     disableMyLocation: undefined,
+     disableSplitter: undefined,
++    hideTakeTourButton: false,
++    hideMyDataTab: false,
+     disablePedestrianMode: false,
+     keepCatalogOpen: false,
+     experimentalFeatures: undefined,
+diff --git a/node_modules/terriajs/lib/ReactViews/SidePanel/SidePanel.tsx b/node_modules/terriajs/lib/ReactViews/SidePanel/SidePanel.tsx
+--- a/node_modules/terriajs/lib/ReactViews/SidePanel/SidePanel.tsx
++++ b/node_modules/terriajs/lib/ReactViews/SidePanel/SidePanel.tsx
+@@ -80,35 +80,37 @@
+               )}
+             </div>
+           ))}
+-          <Box centered css="margin-top: 25px">
+-            <Button
+-              textLight
+-              transparentBg
+-              onClick={() => {
+-                viewState.terria.analytics?.logEvent(
+-                  Category.help,
+-                  HelpAction.takeTour
+-                );
+-                runInAction(() => {
+-                  viewState.setTourIndex(0);
+-                });
+-              }}
+-              renderIcon={() => (
+-                <StyledIcon
+-                  light
+-                  styledWidth={"18px"}
+-                  glyph={Icon.GLYPHS.info}
+-                />
+-              )}
+-              textProps={{
+-                large: true,
+-                textLight: true
+-              }}
+-              css={``}
+-            >
+-              {t("helpPanel.takeTour")}
+-            </Button>
+-          </Box>
++          {!viewState.terria.configParameters.hideTakeTourButton && (
++            <Box centered css="margin-top: 25px">
++              <Button
++                textLight
++                transparentBg
++                onClick={() => {
++                  viewState.terria.analytics?.logEvent(
++                    Category.help,
++                    HelpAction.takeTour
++                  );
++                  runInAction(() => {
++                    viewState.setTourIndex(0);
++                  });
++                }}
++                renderIcon={() => (
++                  <StyledIcon
++                    light
++                    styledWidth={"18px"}
++                    glyph={Icon.GLYPHS.info}
++                  />
++                )}
++                textProps={{
++                  large: true,
++                  textLight: true
++                }}
++                css={``}
++              >
++                {t("helpPanel.takeTour")}
++              </Button>
++            </Box>
++          )}
+         </BoxHelpfulHints>
+       </Text>
+     </Box>
+diff --git a/node_modules/terriajs/lib/ReactViews/Map/Panels/HelpPanel/HelpPanel.jsx b/node_modules/terriajs/lib/ReactViews/Map/Panels/HelpPanel/HelpPanel.jsx
+--- a/node_modules/terriajs/lib/ReactViews/Map/Panels/HelpPanel/HelpPanel.jsx
++++ b/node_modules/terriajs/lib/ReactViews/Map/Panels/HelpPanel/HelpPanel.jsx
+@@ -104,38 +104,40 @@
+             )}
+           </Text>
+           <Spacing bottom={5} />
+-          <Box centered>
+-            <Button
+-              primary
+-              rounded
+-              styledMinWidth={"240px"}
+-              onClick={() => {
+-                this.props.viewState.terria.analytics?.logEvent(
+-                  Category.help,
+-                  HelpAction.takeTour
+-                );
+-                runInAction(() => {
+-                  this.props.viewState.hideHelpPanel();
+-                  this.props.viewState.setTourIndex(0);
+-                });
+-              }}
+-              renderIcon={() => (
+-                <StyledIcon
+-                  light
+-                  styledWidth={"18px"}
+-                  glyph={Icon.GLYPHS.tour}
+-                />
+-              )}
+-              textProps={{
+-                large: true
+-              }}
+-              css={`
+-                ${(p) => p.theme.addTerriaPrimaryBtnStyles(p)}
+-              `}
+-            >
+-              {t("helpPanel.takeTour")}
+-            </Button>
+-          </Box>
++          {!this.props.viewState.terria.configParameters.hideTakeTourButton && (
++            <Box centered>
++              <Button
++                primary
++                rounded
++                styledMinWidth={"240px"}
++                onClick={() => {
++                  this.props.viewState.terria.analytics?.logEvent(
++                    Category.help,
++                    HelpAction.takeTour
++                  );
++                  runInAction(() => {
++                    this.props.viewState.hideHelpPanel();
++                    this.props.viewState.setTourIndex(0);
++                  });
++                }}
++                renderIcon={() => (
++                  <StyledIcon
++                    light
++                    styledWidth={"18px"}
++                    glyph={Icon.GLYPHS.tour}
++                  />
++                )}
++                textProps={{
++                  large: true
++                }}
++                css={`
++                  ${(p) => p.theme.addTerriaPrimaryBtnStyles(p)}
++                `}
++              >
++                {t("helpPanel.takeTour")}
++              </Button>
++            </Box>
++          )}
+         </Box>
+         <Spacing bottom={10} />
+         <Box centered displayInlineBlock fullWidth styledPadding="0 26px">
+diff --git a/node_modules/terriajs/lib/ReactViews/WelcomeMessage/WelcomeMessage.jsx b/node_modules/terriajs/lib/ReactViews/WelcomeMessage/WelcomeMessage.jsx
+--- a/node_modules/terriajs/lib/ReactViews/WelcomeMessage/WelcomeMessage.jsx
++++ b/node_modules/terriajs/lib/ReactViews/WelcomeMessage/WelcomeMessage.jsx
+@@ -291,22 +291,26 @@
+                 <Box styledMargin={"0 auto"} displayInlineBlock>
+                   {!viewState.useSmallScreenInterface && (
+                     <>
+-                      <WelcomeMessageButton
+-                        onClick={() => {
+-                          handleClose(false);
+-                          // not sure if we should wait for the exit animation,
+-                          // if we don't, we have a flicker due to the difference
+-                          // in overlay darkness - but if we wait, it goes
+-                          // dark -> light -> dark anyway..
+-                          setShouldTakeTour(true);
+-                          viewState.setTourIndex(0);
+-                          viewState.setShowTour(true);
+-                          viewState.setTopElement(TourPortalDisplayName);
+-                        }}
+-                        buttonText={t("welcomeMessage.tourBtnText")}
+-                        buttonIcon={Icon.GLYPHS.tour}
+-                      />
+-                      <Spacing bottom={4} />
++                      {!viewState.terria.configParameters.hideTakeTourButton && (
++                        <>
++                          <WelcomeMessageButton
++                            onClick={() => {
++                              handleClose(false);
++                              // not sure if we should wait for the exit animation,
++                              // if we don't, we have a flicker due to the difference
++                              // in overlay darkness - but if we wait, it goes
++                              // dark -> light -> dark anyway..
++                              setShouldTakeTour(true);
++                              viewState.setTourIndex(0);
++                              viewState.setShowTour(true);
++                              viewState.setTopElement(TourPortalDisplayName);
++                            }}
++                            buttonText={t("welcomeMessage.tourBtnText")}
++                            buttonIcon={Icon.GLYPHS.tour}
++                          />
++                          <Spacing bottom={4} />
++                        </>
++                      )}
+                       <WelcomeMessageButton
+                         buttonText={t("welcomeMessage.helpBtnText")}
+                         buttonIcon={Icon.GLYPHS.newHelp}
+diff --git a/node_modules/terriajs/lib/ReactViews/ExplorerWindow/Tabs.jsx b/node_modules/terriajs/lib/ReactViews/ExplorerWindow/Tabs.jsx
+--- a/node_modules/terriajs/lib/ReactViews/ExplorerWindow/Tabs.jsx
++++ b/node_modules/terriajs/lib/ReactViews/ExplorerWindow/Tabs.jsx
+@@ -46,19 +46,22 @@
+       return this.props.tabs;
+     }
+ 
+-    const myDataTab = {
+-      title: "my-data",
+-      name: t("addData.myData"),
+-      category: "my-data",
+-      panel: (
+-        <MyDataTab
+-          terria={this.props.terria}
+-          viewState={this.props.viewState}
+-          onFileAddFinished={(files) => this.onFileAddFinished(files)}
+-          onUrlAddFinished={() => this.onUrlAddFinished()}
+-        />
+-      )
+-    };
++    const showMyDataTab = !this.props.terria.configParameters.hideMyDataTab;
++    const myDataTab = showMyDataTab
++      ? {
++          title: "my-data",
++          name: t("addData.myData"),
++          category: "my-data",
++          panel: (
++            <MyDataTab
++              terria={this.props.terria}
++              viewState={this.props.viewState}
++              onFileAddFinished={(files) => this.onFileAddFinished(files)}
++              onUrlAddFinished={() => this.onUrlAddFinished()}
++            />
++          )
++        }
++      : null;
+ 
+     if (this.props.terria.configParameters.tabbedCatalog) {
+       return [].concat(
+@@ -78,7 +81,7 @@
+               />
+             )
+           })),
+-        [myDataTab]
++        myDataTab ? [myDataTab] : []
+       );
+     } else {
+       return [
+@@ -93,7 +96,7 @@
+             />
+           )
+         },
+-        myDataTab
++        ...(myDataTab ? [myDataTab] : [])
+       ];
+     }
+   }
+

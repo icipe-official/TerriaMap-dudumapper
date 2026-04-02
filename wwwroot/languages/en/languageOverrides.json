@@ -1,7 +1,31 @@
 {
+  "tour": {
+    "preface": {
+      "title": "Take the tour",
+      "content": "New to Dudu Mapper? This short walkthrough highlights search, adding data from the catalogue, stories (if enabled), and the map tools on the right — matched to how this app is set up.",
+      "close": "Maybe later",
+      "start": "Start tour"
+    },
+    "finish": "Finish",
+    "locationSearchInput": {
+      "content": "## Location search\n\nEnter a place name or address to move the map there. This uses the same search as the bar at the top of the workbench."
+    },
+    "exploreMapDataButton": {
+      "content": "## Explore data\n\nOpen the data catalogue to browse groups and layers you can add to the map. You can activate several datasets at once; each one appears in the workbench on the left with its legend and settings."
+    },
+    "sidePanelUploadButton": {
+      "content": "## Upload data\n\nAdd your own file or link to an existing service (for example CSV, GeoJSON, KML, GPX, or CZML) so it appears alongside catalogue layers in the workbench."
+    },
+    "menuBarStoryButton": {
+      "content": "## Stories\n\nStories let you attach narrative context to the map. When stories are enabled, open them from the menu bar to play or edit; you can share the map from the Share panel when you are done."
+    },
+    "mapNavigationCompassOuterRing": {
+      "content": "## Map controls\n\nOn the right you will find zoom, reset view, my location, and measuring tools. Use them to move around the map. If you switch to 3D view, the compass control also lets you rotate and tilt the camera."
+    }
+  },
   "gettingstarted": {
     "title": "Getting started with the map",
-    "markdownText": "## Getting started with the map\n\nIf you're new to the map or using spatial data, our Getting Started video quickly covers the basic functionality you'll need to use to add and interrogate data sets.\n\nIf you don't have time to watch the video, we suggest exploring the following areas:\n\n1. Search for a location to quickly find an area of interest\n2. Use 'Explore map data' to view the catalogue of available data sets and add them to the map\n3. Interact with the data layer, including opacity and toggling on and off on the left in your workbench\n4. Click on the data on the map to view more detailed data, including the raw data\n5. Change your basemap using options in 'Map Settings' to help make some data sets more visible\n6. Zoom and change your view, including tilting the view angle using the controls on the right-hand side of the screen",
+    "markdownText": "## Getting started with the map\n\nIf you're new to the map or using spatial data, our Getting Started video quickly covers the basic functionality you'll need to use to add and interrogate data sets.\n\nIf you don't have time to watch the video, we suggest exploring the following areas:\n\n1. Search for a location to quickly find an area of interest\n2. Use **Explore data** to open the catalogue and add layers to the map\n3. Interact with each layer in the workbench on the left (opacity, visibility, and settings)\n4. Click features on the map to open the feature information panel\n5. Adjust how layers look using each item’s workbench settings (including style and contrast where available)\n6. Zoom and pan using the controls on the right-hand side of the screen",
     "videoUrl": "https://www.youtube-nocookie.com/embed/FjSxaviSLhc",
     "placeholderImage": "https://img.youtube.com/vi/FjSxaviSLhc/maxresdefault.jpg"
   },
@@ -33,7 +57,7 @@
         "title": "Click on data on the map to view more details by triggering Feature Information panel"
       },
       "step7": {
-        "title": "Change your basemap using options in \"Map Settings\" to improve contrast"
+        "title": "Tune layer display from the workbench (opacity, legend, and item settings) for clearer visuals"
       },
       "step8": {
         "title": "Zoom and change view using the controls on the right-hand side of the screen"
@@ -61,7 +85,7 @@
     },
     "comparetimeseries": {
       "title": "View and compare different points in time",
-      "footnote": "Important: Any time series data can be compared using the Split Screen Mode, not just satellite imagery",
+      "footnote": "In this app, use the time control and date picker on time-enabled layers to change the displayed date. Side-by-side split compare is not enabled here.",
       "step1": {
         "title": "Add a time series dataset to the map",
         "markdownDescription": "- Satellite imagery is a good example of time series data, with many satellites going back decades\n- Find your location of interest and filter available imagery by this location\n-See our Adding Satellite Imagery to the Map guide for more"
@@ -71,12 +95,12 @@
         "markdownDescription": "- In the workbench on the left, select the time and date which will open the date picker\n- Select a year, month and date, or navigate back to other years and even centuries using the back arrow\n- Available dates appear in blue"
       },
       "step3": {
-        "title": "Compare different dates at one location",
-        "markdownDescription": "- From the 3 dots drop-down menu in the workbench, press 'Compare' to activate Split Screen Mode\n- A duplicate copy of your dataset will appear in the workbench\n- Choose the dates you want to compare on the left and right of the screen\n- Drag the slider using the white button to swipe and compare the two image dates"
+        "title": "Switch the time shown on the map",
+        "markdownDescription": "- Select the time series layer in the workbench\n- Use its date or time slider / picker to move between available times\n- The map updates to show the imagery or data for the time you chose"
       },
       "step4": {
-        "title": "Close Split Screen Mode",
-        "markdownDescription": "- Escape the Split Screen Mode by pressing the 'x' of Split Screen Mode title in the workbench\n- Remove the duplicate copy of your dataset in the workbench using the 3 dots drop-down menu"
+        "title": "Review and refine",
+        "markdownDescription": "- Zoom and pan to check the area of interest at different times\n- If the view is cloudy, pick another nearby date from the picker (when your layer supports it)"
       }
     }
   },
@@ -115,5 +139,19 @@
   "helpContentTerm8": {
     "term": "preview style",
     "content": "The way the dataset appears in the preview window. We recommend true colour to search for cloud-free images"
-  }
+  },
+  "emptyWorkbenchInfo": [
+    {
+      "heading": "Add a dataset here",
+      "body": "When you add a dataset, its legend and settings appear here."
+    },
+    {
+      "heading": "Get started",
+      "list": [
+        "Click Explore data to open the catalogue",
+        "Browse groups and add layers to the map",
+        "Find your added data in this panel"
+      ]
+    }
+  ]
 }

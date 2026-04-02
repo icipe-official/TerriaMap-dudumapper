@@ -8,6 +8,8 @@ import ViewState from "terriajs/lib/ReactViewModels/ViewState";
 import registerCustomComponentTypes from "terriajs/lib/ReactViews/Custom/registerCustomComponentTypes";
 import updateApplicationOnHashChange from "terriajs/lib/ViewModels/updateApplicationOnHashChange";
 import updateApplicationOnMessageFromParentWindow from "terriajs/lib/ViewModels/updateApplicationOnMessageFromParentWindow";
+import { runInAction } from "mobx";
+import { getDuduTourPoints } from "./lib/duduTourPoints";
 import loadPlugins from "./lib/Core/loadPlugins";
 import showGlobalDisclaimer from "./lib/Views/showGlobalDisclaimer";
 import plugins from "./plugins";
@@ -74,6 +76,10 @@ export default terria
     if (document.title === "Dudu Mapper") {
       document.title = terria.appName;
     }
+
+    runInAction(() => {
+      viewState.tourPoints = getDuduTourPoints(terria);
+    });
 
     // Load init sources like init files and share links
     terria.loadInitSources().then((result) => result.raiseError(terria));

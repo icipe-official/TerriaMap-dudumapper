@@ -12,6 +12,18 @@ body {
     display: none !important;
   }
 
+  /* Side panel "Upload data" — opens My Data / local upload (title from i18n addData.load, English default). */
+  button[title="Load local/web data"] {
+    display: none !important;
+  }
+
+  /* Match "Explore data" button width to the search bar (overrides SidePanel 152px; title = i18n addData.addDataBtnText, English default). */
+  button[title="Explore data"] {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   @media print {
     .nationalmap-print-disclaimer {
       color: #000;

@@ -25,6 +25,9 @@
     "mobileDefaultViewerMode": "2d",
     "experimentalFeatures": true,
     "useCesiumIonTerrain": false,
+    "disableSplitter": true,
+    "hideTakeTourButton": true,
+    "hideMyDataTab": true,
     "languageConfiguration": {
       "enabled": false,
       "debug": false,
