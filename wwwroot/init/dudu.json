@@ -119,6 +119,23 @@
           "description": "No description available."
         }
       ]
+    },
+    {
+      "name": "VL Endemicity Heatmap",
+      "type": "wms",
+      "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+      "layers": "Dudu:vl_heatmap_combined_2",
+      "crs": "EPSG:3857",
+      "legends": [
+        {
+          "url": "images/vl_legend.PNG"
+        }
+      ],
+      "parameters": {
+        "styles": "vl_heatmap_raster_style",
+        "transparent": true,
+        "format": "image/png"
+      }
     }
   ],
   "homeCamera": {
