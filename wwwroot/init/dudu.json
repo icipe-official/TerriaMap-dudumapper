@@ -318,6 +318,14 @@
           "layers": "Dudu:garissa_ndvi,Dudu:garissa_subcounties,Dudu:garissa_patients,Dudu:garissa_facilities",
           "crs": "EPSG:3857",
           "description": "Garissa County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Isiolo",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:isiolo_ndvi,Dudu:isiolo_subcounties,Dudu:isiolo_patients,Dudu:isiolo_facilities",
+          "crs": "EPSG:3857",
+          "description": "Isiolo County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
         }
       ]
     },
