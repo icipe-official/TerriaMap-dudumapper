@@ -4,7 +4,7 @@
     {
       "name": "VL Turkana Models",
       "type": "group",
-      "isOpen": true,
+      "isOpen": false,
       "members": [
         {
           "name": "CMP Model",
@@ -117,6 +117,199 @@
           "layers": "Dudu:Ada_Mboost",
           "crs": "EPSG:3857",
           "description": "No description available."
+        }
+      ]
+    },
+    {
+      "name": "VL Health Facilities",
+      "type": "group",
+      "isOpen": false,
+      "members": [
+        {
+          "name": "Kenya VL Facilities",
+          "type": "csv",
+          "url": "data/primary_vl_facilities.csv",
+          "hideSource": true,
+          "activeStyle": "vl-by-type",
+          "description": "Health facilities offering VL diagnosis and treatment.",
+          "featureInfoTemplate": {
+            "name": "{{Health_Facilities}}",
+            "template": "<table class='Terria-feature-info'><tbody><tr><th>Facility</th><td>{{Health_Facilities}}</td></tr><tr><th>VL type</th><td>{{VL_Facility_Type}}</td></tr><tr><th>County</th><td>{{Counties_in_Kenya}}</td></tr><tr><th>Subcounty</th><td>{{Subcounty}}</td></tr></tbody></table>"
+          },
+          "defaultStyle": {
+            "latitudeColumn": "latitude",
+            "longitudeColumn": "longitude"
+          },
+          "styles": [
+            {
+              "id": "vl-by-type",
+              "title": "VL facility type",
+              "color": {
+                "mapType": "enum",
+                "colorColumn": "VL_Facility_Type",
+                "enumColors": [
+                  {
+                    "value": "Diagnosis Only",
+                    "color": "#c026d3"
+                  },
+                  {
+                    "value": "Diagnosis and Treatment",
+                    "color": "#22c55e"
+                  }
+                ],
+                "nullColor": "#9ca3af",
+                "nullLabel": "Unclassified"
+              },
+              "point": {
+                "mapType": "enum",
+                "column": "VL_Facility_Type",
+                "enum": [
+                  {
+                    "value": "Diagnosis Only",
+                    "marker": "hospital",
+                    "height": 28,
+                    "width": 28,
+                    "rotation": 0
+                  },
+                  {
+                    "value": "Diagnosis and Treatment",
+                    "marker": "hospital",
+                    "height": 28,
+                    "width": 28,
+                    "rotation": 0
+                  }
+                ]
+              },
+              "outline": {
+                "mapType": "enum",
+                "column": "VL_Facility_Type",
+                "enum": [
+                  {
+                    "value": "Diagnosis Only",
+                    "color": "#1f2937",
+                    "width": 2
+                  },
+                  {
+                    "value": "Diagnosis and Treatment",
+                    "color": "#1f2937",
+                    "width": 2
+                  }
+                ],
+                "null": {
+                  "color": "#1f2937",
+                  "width": 1
+                }
+              }
+            },
+            { "id": "Health_Facilities", "hidden": true },
+            { "id": "has_diagnosis", "hidden": true },
+            { "id": "has_treatment", "hidden": true },
+            { "id": "Counties.in.Kenya", "hidden": true },
+            { "id": "Subcounty", "hidden": true },
+            { "id": "VL_Facility_Type", "hidden": true },
+            { "id": "level", "hidden": true },
+            { "id": "facility_type", "hidden": true },
+            { "id": "kmhfr_county", "hidden": true },
+            { "id": "kmhfr_sub_county", "hidden": true },
+            { "id": "kmhfr_ward", "hidden": true },
+            { "id": "latitude", "hidden": true },
+            { "id": "longitude", "hidden": true },
+            { "id": "description", "hidden": true },
+            { "id": "total_inpatient_beds", "hidden": true },
+            { "id": "general_inpatient_beds", "hidden": true },
+            { "id": "cots", "hidden": true },
+            { "id": "maternity_beds", "hidden": true },
+            { "id": "emergency_casualty_beds", "hidden": true },
+            { "id": "icu_beds", "hidden": true },
+            { "id": "hdu_beds", "hidden": true },
+            { "id": "isolation_beds", "hidden": true },
+            { "id": "general_theatres", "hidden": true },
+            { "id": "maternity_theatres", "hidden": true },
+            { "id": "services", "hidden": true }
+          ]
+        },
+        {
+          "name": "Uganda VL Facilities",
+          "type": "csv",
+          "url": "data/hospitals_ug.csv",
+          "hideSource": true,
+          "activeStyle": "vl-by-type-uganda",
+          "description": "Uganda health facilities offering VL diagnosis and treatment.",
+          "featureInfoTemplate": {
+            "name": "{{Facility}}",
+            "template": "<table class='Terria-feature-info'><tbody><tr><th>Facility</th><td>{{Facility}}</td></tr><tr><th>Country</th><td>{{County}}</td></tr></tbody></table>"
+          },
+          "defaultStyle": {
+            "latitudeColumn": "Lat",
+            "longitudeColumn": "Long"
+          },
+          "styles": [
+            {
+              "id": "vl-by-type-uganda",
+              "title": "VL facility type",
+              "color": {
+                "mapType": "enum",
+                "colorColumn": "VL_Facility_Type",
+                "enumColors": [
+                  {
+                    "value": "Diagnosis and Treatment",
+                    "color": "#22c55e"
+                  }
+                ],
+                "nullColor": "#22c55e",
+                "nullLabel": "Diagnosis and Treatment"
+              },
+              "point": {
+                "mapType": "enum",
+                "column": "VL_Facility_Type",
+                "enum": [
+                  {
+                    "value": "Diagnosis and Treatment",
+                    "marker": "hospital",
+                    "height": 28,
+                    "width": 28,
+                    "rotation": 0
+                  }
+                ]
+              },
+              "outline": {
+                "mapType": "enum",
+                "column": "VL_Facility_Type",
+                "enum": [
+                  {
+                    "value": "Diagnosis and Treatment",
+                    "color": "#1f2937",
+                    "width": 2
+                  }
+                ],
+                "null": {
+                  "color": "#1f2937",
+                  "width": 2
+                }
+              }
+            },
+            { "id": "County", "hidden": true },
+            { "id": "County/district", "hidden": true },
+            { "id": "VL_Facility_Type", "hidden": true },
+            { "id": "Facility", "hidden": true },
+            { "id": "Lat", "hidden": true },
+            { "id": "Long", "hidden": true }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Annex9_maps",
+      "type": "group",
+      "isOpen": false,
+      "members": [
+        {
+          "name": "Baringo",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:baringo_ndvi,Dudu:baringo_subcounties,Dudu:baringo_patients,Dudu:baringo_facilities",
+          "crs": "EPSG:3857",
+          "description": "Baringo County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
         }
       ]
     },

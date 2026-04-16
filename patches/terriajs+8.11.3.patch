@@ -763,3 +763,22 @@ diff --git a/node_modules/terriajs/lib/ReactViews/ExplorerWindow/Tabs.jsx b/node
        ];
      }
    }
+diff --git a/node_modules/terriajs/lib/Traits/TraitsClasses/CsvCatalogItemTraits.ts b/node_modules/terriajs/lib/Traits/TraitsClasses/CsvCatalogItemTraits.ts
+--- a/node_modules/terriajs/lib/Traits/TraitsClasses/CsvCatalogItemTraits.ts
++++ b/node_modules/terriajs/lib/Traits/TraitsClasses/CsvCatalogItemTraits.ts
+@@ -4,6 +4,7 @@
+ import ModelTraits from "../ModelTraits";
+ import { traitClass } from "../Trait";
+ import AutoRefreshingTraits from "./AutoRefreshingTraits";
++import CatalogMemberTraits from "./CatalogMemberTraits";
+ import TableTraits from "./Table/TableTraits";
+ import UrlTraits from "./UrlTraits";
+ 
+@@ -42,6 +43,7 @@
+   }
+ })
+ export default class CsvCatalogItemTraits extends mixTraits(
++  CatalogMemberTraits,
+   AutoRefreshingTraits,
+   UrlTraits,
+   TableTraits
