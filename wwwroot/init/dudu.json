@@ -304,28 +304,100 @@
       "isOpen": false,
       "members": [
         {
-          "name": "Baringo",
+          "name": "Baringo (2009-2025)",
           "type": "wms",
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
-          "layers": "Dudu:baringo_ndvi,Dudu:baringo_subcounties,Dudu:baringo_patients,Dudu:baringo_facilities",
+          "layers": "Dudu:baringo_ndvi,Dudu:baringo_subcounties,Dudu:baringo_patients1,Dudu:baringo_facilities",
           "crs": "EPSG:3857",
           "description": "Baringo County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
         },
         {
-          "name": "Garissa",
+          "name": "Garissa (2018-2024)",
           "type": "wms",
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
-          "layers": "Dudu:garissa_ndvi,Dudu:garissa_subcounties,Dudu:garissa_patients,Dudu:garissa_facilities",
+          "layers": "Dudu:garissa_ndvi,Dudu:garissa_subcounties,Dudu:garissa_patients1,Dudu:garissa_facilities",
           "crs": "EPSG:3857",
           "description": "Garissa County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
         },
         {
-          "name": "Isiolo",
+          "name": "Isiolo (2019-2025)",
           "type": "wms",
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
-          "layers": "Dudu:isiolo_ndvi,Dudu:isiolo_subcounties,Dudu:isiolo_patients,Dudu:isiolo_facilities",
+          "layers": "Dudu:isiolo_ndvi,Dudu:isiolo_subcounties,Dudu:isiolo_patients1,Dudu:isiolo_facilities",
           "crs": "EPSG:3857",
           "description": "Isiolo County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Kajiado (2021-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:kajiado_ndvi,Dudu:kajiado_subcounties,Dudu:kajiado_patients,Dudu:kajiado_facilities",
+          "crs": "EPSG:3857",
+          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Kitui (2019-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:kitui_ndvi,Dudu:kitui_subcounties,Dudu:kitui_patients,Dudu:kitui_facilities",
+          "crs": "EPSG:3857",
+          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Mandera (2020-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:mandera_ndvi,Dudu:mandera_subcounties,Dudu:mandera_patients,Dudu:mandera_facilities",
+          "crs": "EPSG:3857",
+          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Marsabit (2017-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:marsabit_ndvi,Dudu:marsabit_subcounties,Dudu:marsabit_patients,Dudu:marsabit_facilities",
+          "crs": "EPSG:3857",
+          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Samburu (2019-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:samburu_ndvi,Dudu:samburu_subcounties,Dudu:samburu_patients",
+          "crs": "EPSG:3857",
+          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Tharaka Nithi (2009-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:tharaka_nithi_ndvi,Dudu:tharaka_nithi_subcounties,Dudu:tharaka_nithi_patients,Dudu:tharaka_nithi_facilities",
+          "crs": "EPSG:3857",
+          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Turkana (2012-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:turkana_ndvi,Dudu:turkana_subcounties,Dudu:turkana_patients,Dudu:turkana_facilities",
+          "crs": "EPSG:3857",
+          "description": "Turkana County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Wajir (2019-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:wajir_ndvi,Dudu:wajir_subcounties,Dudu:wajir_patients,Dudu:wajir_facilities",
+          "crs": "EPSG:3857",
+          "description": "Wajir County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "West Pokot (2019-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:west_pokot_ndvi,Dudu:west_pokot_subcounties,Dudu:west_pokot_patients,Dudu:west_pokot_facilities",
+          "crs": "EPSG:3857",
+          "description": "West Pokot County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
         }
       ]
     },
