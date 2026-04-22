@@ -193,7 +193,7 @@ index 90a99f3..02b3c62 100644
  
  export const TerriaLogo: FC = () => {
    return (
-@@ -8,9 +8,21 @@ export const TerriaLogo: FC = () => {
+@@ -8,9 +8,20 @@ export const TerriaLogo: FC = () => {
        as={"a"}
        target="_blank"
        rel="noopener noreferrer"
