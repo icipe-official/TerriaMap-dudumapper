@@ -208,8 +208,7 @@ index 90a99f3..02b3c62 100644
 +        css={{
 +          height: "24px",
 +          background: "white",
-+          padding: "3px 6px",
-+          borderRadius: "10px"
++          padding: "3px 6px"
 +        }}
 +        src={logo}
 +        title="Home"
@@ -301,6 +300,14 @@ diff --git a/node_modules/terriajs/lib/ReactViews/Preview/DataPreviewUrl.jsx b/n
 diff --git a/node_modules/terriajs/lib/ReactViews/Preview/Description.jsx b/node_modules/terriajs/lib/ReactViews/Preview/Description.jsx
 --- a/node_modules/terriajs/lib/ReactViews/Preview/Description.jsx
 +++ b/node_modules/terriajs/lib/ReactViews/Preview/Description.jsx
+@@ -8,7 +8,6 @@
+ import Collapsible from "../Custom/Collapsible/Collapsible";
+ import parseCustomMarkdownToReact from "../Custom/parseCustomMarkdownToReact";
+ import DataPreviewSections from "./DataPreviewSections";
+-import ExportData from "./ExportData";
+ import Styles from "./mappable-preview.scss";
+ import MetadataTable from "./MetadataTable";
+ import WarningBox from "./WarningBox";
 @@ -139,7 +139,7 @@
  
          {!catalogItem.hideSource && (
@@ -338,6 +345,14 @@ diff --git a/node_modules/terriajs/lib/ReactViews/Preview/Description.jsx b/node
  
                  {catalogItem.type === "wfs" && (
                    <p key="wfs-typeNames">
+@@ -273,7 +271,6 @@
+             )}
+           </>
+         )}
+-        {!this.props.printView ? <ExportData item={catalogItem} /> : null}
+       </div>
+     );
+   }
 diff --git a/node_modules/terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.tsx b/node_modules/terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.tsx
 --- a/node_modules/terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.tsx
 +++ b/node_modules/terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.tsx

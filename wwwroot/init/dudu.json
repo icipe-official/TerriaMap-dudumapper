@@ -131,7 +131,7 @@
           "url": "data/primary_vl_facilities.csv",
           "hideSource": true,
           "activeStyle": "vl-by-type",
-          "description": "Health facilities offering VL diagnosis and treatment.",
+          "description": "Health facilities offering VL diagnosis and treatment in Kenya.",
           "featureInfoTemplate": {
             "name": "{{Health_Facilities}}",
             "template": "<table class='Terria-feature-info'><tbody><tr><th>Facility</th><td>{{Health_Facilities}}</td></tr><tr><th>VL type</th><td>{{VL_Facility_Type}}</td></tr><tr><th>County</th><td>{{Counties_in_Kenya}}</td></tr><tr><th>Subcounty</th><td>{{Subcounty}}</td></tr></tbody></table>"
@@ -295,6 +295,90 @@
             { "id": "Lat", "hidden": true },
             { "id": "Long", "hidden": true }
           ]
+        },
+        {
+          "name": "Ethiopia VL Facilities",
+          "type": "csv",
+          "url": "data/Ethiopia_healthfacilities.csv",
+          "hideSource": true,
+          "activeStyle": "vl-by-type-ethiopia",
+          "description": "Health facilities offering VL diagnosis and treatment in Ethiopia.",
+          "featureInfoTemplate": {
+            "name": "{{Hospital}}",
+            "template": "<table class='Terria-feature-info'><tbody><tr><th>Facility</th><td>{{Hospital}}</td></tr><tr><th>VL type</th><td>{{VL_Facility_Type}}</td></tr><tr><th>Country</th><td>Ethiopia</td></tr></tbody></table>"
+          },
+          "defaultStyle": {
+            "latitudeColumn": "New_Latitude",
+            "longitudeColumn": "New_Longitude"
+          },
+          "styles": [
+            {
+              "id": "vl-by-type-ethiopia",
+              "title": "VL facility type",
+              "color": {
+                "mapType": "enum",
+                "colorColumn": "VL_Facility_Type",
+                "enumColors": [
+                  {
+                    "value": "Diagnosis Only",
+                    "color": "#c026d3"
+                  },
+                  {
+                    "value": "Diagnosis and Treatment",
+                    "color": "#22c55e"
+                  }
+                ],
+                "nullColor": "#9ca3af",
+                "nullLabel": "Unclassified"
+              },
+              "point": {
+                "mapType": "enum",
+                "column": "VL_Facility_Type",
+                "enum": [
+                  {
+                    "value": "Diagnosis Only",
+                    "marker": "hospital",
+                    "height": 28,
+                    "width": 28,
+                    "rotation": 0
+                  },
+                  {
+                    "value": "Diagnosis and Treatment",
+                    "marker": "hospital",
+                    "height": 28,
+                    "width": 28,
+                    "rotation": 0
+                  }
+                ]
+              },
+              "outline": {
+                "mapType": "enum",
+                "column": "VL_Facility_Type",
+                "enum": [
+                  {
+                    "value": "Diagnosis Only",
+                    "color": "#1f2937",
+                    "width": 2
+                  },
+                  {
+                    "value": "Diagnosis and Treatment",
+                    "color": "#1f2937",
+                    "width": 2
+                  }
+                ],
+                "null": {
+                  "color": "#1f2937",
+                  "width": 1
+                }
+              }
+            },
+            { "id": "Hospital", "hidden": true },
+            { "id": "Latitude", "hidden": true },
+            { "id": "Longitude", "hidden": true },
+            { "id": "VL_Facility_Type", "hidden": true },
+            { "id": "New_Latitude", "hidden": true },
+            { "id": "New_Longitude", "hidden": true }
+          ]
         }
       ]
     },
@@ -402,21 +486,114 @@
       ]
     },
     {
+      "name": "Annex10_maps",
+      "type": "group",
+      "isOpen": false,
+      "members": [
+        {
+          "name": "Baringo (2009-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:baringo_vl_hotspot,Dudu:baringo_wards,Dudu:baringo_facilities",
+          "crs": "EPSG:3857",
+          "description": "Baringo County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Garissa (2018-2024)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:garissa_vl_hotspot,Dudu:garissa_wards,Dudu:garissa_facilities",
+          "crs": "EPSG:3857",
+          "description": "Garissa County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Isiolo (2019-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:isiolo_vl_hotspot,Dudu:isiolo_wards,Dudu:isiolo_facilities",
+          "crs": "EPSG:3857",
+          "description": "Isiolo County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Kajiado (2021-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:kajiado_vl_hotspot,Dudu:kajiado_wards,Dudu:kajiado_facilities",
+          "crs": "EPSG:3857",
+          "description": "Kajiado County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Kitui (2019-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:kitui_vl_hotspot,Dudu:kitui_wards,Dudu:kitui_facilities",
+          "crs": "EPSG:3857",
+          "description": "Kitui County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Mandera (2020-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:mandera_vl_hotspot,Dudu:mandera_wards,Dudu:mandera_facilities",
+          "crs": "EPSG:3857",
+          "description": "Mandera County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Marsabit (2017-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:marsabit_vl_hotspot,Dudu:marsabit_wards,Dudu:marsabit_facilities",
+          "crs": "EPSG:3857",
+          "description": "Marsabit County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Samburu (2019-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:samburu_vl_hotspot,Dudu:samburu_wards",
+          "crs": "EPSG:3857",
+          "description": "Samburu County VL endemicity hotspot (kernel density) and subcounty boundaries. Note: no VL diagnosis/treatment facilities in Samburu."
+        },
+        {
+          "name": "Tharaka Nithi (2009-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:Tharaka_Nithi_hotspot,Dudu:tharaka_nithi_wards,Dudu:tharaka_nithi_facilities",
+          "crs": "EPSG:3857",
+          "description": "Tharaka Nithi County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Turkana (2012-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:Turkana_hotspot,Dudu:turkana_wards,Dudu:turkana_facilities",
+          "crs": "EPSG:3857",
+          "description": "Turkana County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "Wajir (2019-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:wajir_vl_hotspot,Dudu:wajir_wards,Dudu:wajir_facilities",
+          "crs": "EPSG:3857",
+          "description": "Wajir County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        },
+        {
+          "name": "West Pokot (2019-2025)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:west_pokot_vl_hotspot,Dudu:west_pokot_wards,Dudu:west_pokot_facilities",
+          "crs": "EPSG:3857",
+          "description": "West Pokot County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+        }
+      ]
+    },
+    {
       "name": "VL Endemicity Heatmap",
       "type": "wms",
       "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
-      "layers": "Dudu:vl_heatmap_combined_2",
-      "crs": "EPSG:3857",
-      "legends": [
-        {
-          "url": "images/vl_legend.PNG"
-        }
-      ],
-      "parameters": {
-        "styles": "vl_heatmap_raster_style",
-        "transparent": true,
-        "format": "image/png"
-      }
+      "layers": "Dudu:kenya_uganda_hotspot,Dudu:kenya_patients_national,Dudu:uganda_patients_national",
+      "crs": "EPSG:3857"
     }
   ],
   "homeCamera": {

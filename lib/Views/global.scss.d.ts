@@ -6,6 +6,8 @@ declare namespace GlobalScssNamespace {
     "react-datepicker__year--selecting-range": string;
     reactDatepickerMonthSelectingRange: string;
     reactDatepickerYearSelectingRange: string;
+    "tjs-mappable-preview__metadata": string;
+    tjsMappablePreviewMetadata: string;
   }
 }
 
