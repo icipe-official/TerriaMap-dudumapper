@@ -383,7 +383,7 @@
       ]
     },
     {
-      "name": "Annex9_maps",
+      "name": "VL County Maps - NDVI, Patients & Subcounties",
       "type": "group",
       "isOpen": false,
       "members": [
@@ -486,7 +486,7 @@
       ]
     },
     {
-      "name": "Annex10_maps",
+      "name": "VL County Maps - Endemicity Hotspots & Wards",
       "type": "group",
       "isOpen": false,
       "members": [
@@ -587,6 +587,13 @@
           "description": "West Pokot County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
         }
       ]
+    },
+    {
+      "name": "VL Patients Map",
+      "type": "wms",
+      "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+      "layers": "Dudu:kenya_ndvi,Dudu:kenya_subcounties1,Dudu:kenya_counties,Dudu:kenya_patients_national1,Dudu:kenya_facilities_national",
+      "crs": "EPSG:3857"
     },
     {
       "name": "VL Endemicity Heatmap",
