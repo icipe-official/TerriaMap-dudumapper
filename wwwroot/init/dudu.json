@@ -34,7 +34,11 @@
               "name": "Areas of high risk?",
               "content": "No"
             }
-          ]
+          ],
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "GAM Model",
@@ -64,7 +68,11 @@
               "name": "Areas of high risk?",
               "content": "Yes"
             }
-          ]
+          ],
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "GPR Model",
@@ -94,7 +102,11 @@
               "name": "Areas of high risk?",
               "content": "No"
             }
-          ]
+          ],
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "AdaBoost Model",
@@ -108,7 +120,11 @@
               "name": "Publication",
               "content": "For more information, see the publication: [https://doi.org/10.3389/fdgth.2025.1643314](https://doi.org/10.3389/fdgth.2025.1643314)"
             }
-          ]
+          ],
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Ada Mboost",
@@ -116,7 +132,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:Ada_Mboost",
           "crs": "EPSG:3857",
-          "description": "No description available."
+          "description": "No description available.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         }
       ]
     },
@@ -201,32 +221,109 @@
                 }
               }
             },
-            { "id": "Health_Facilities", "hidden": true },
-            { "id": "has_diagnosis", "hidden": true },
-            { "id": "has_treatment", "hidden": true },
-            { "id": "Counties.in.Kenya", "hidden": true },
-            { "id": "Subcounty", "hidden": true },
-            { "id": "VL_Facility_Type", "hidden": true },
-            { "id": "level", "hidden": true },
-            { "id": "facility_type", "hidden": true },
-            { "id": "kmhfr_county", "hidden": true },
-            { "id": "kmhfr_sub_county", "hidden": true },
-            { "id": "kmhfr_ward", "hidden": true },
-            { "id": "latitude", "hidden": true },
-            { "id": "longitude", "hidden": true },
-            { "id": "description", "hidden": true },
-            { "id": "total_inpatient_beds", "hidden": true },
-            { "id": "general_inpatient_beds", "hidden": true },
-            { "id": "cots", "hidden": true },
-            { "id": "maternity_beds", "hidden": true },
-            { "id": "emergency_casualty_beds", "hidden": true },
-            { "id": "icu_beds", "hidden": true },
-            { "id": "hdu_beds", "hidden": true },
-            { "id": "isolation_beds", "hidden": true },
-            { "id": "general_theatres", "hidden": true },
-            { "id": "maternity_theatres", "hidden": true },
-            { "id": "services", "hidden": true }
-          ]
+            {
+              "id": "Health_Facilities",
+              "hidden": true
+            },
+            {
+              "id": "has_diagnosis",
+              "hidden": true
+            },
+            {
+              "id": "has_treatment",
+              "hidden": true
+            },
+            {
+              "id": "Counties.in.Kenya",
+              "hidden": true
+            },
+            {
+              "id": "Subcounty",
+              "hidden": true
+            },
+            {
+              "id": "VL_Facility_Type",
+              "hidden": true
+            },
+            {
+              "id": "level",
+              "hidden": true
+            },
+            {
+              "id": "facility_type",
+              "hidden": true
+            },
+            {
+              "id": "kmhfr_county",
+              "hidden": true
+            },
+            {
+              "id": "kmhfr_sub_county",
+              "hidden": true
+            },
+            {
+              "id": "kmhfr_ward",
+              "hidden": true
+            },
+            {
+              "id": "latitude",
+              "hidden": true
+            },
+            {
+              "id": "longitude",
+              "hidden": true
+            },
+            {
+              "id": "description",
+              "hidden": true
+            },
+            {
+              "id": "total_inpatient_beds",
+              "hidden": true
+            },
+            {
+              "id": "general_inpatient_beds",
+              "hidden": true
+            },
+            {
+              "id": "cots",
+              "hidden": true
+            },
+            {
+              "id": "maternity_beds",
+              "hidden": true
+            },
+            {
+              "id": "emergency_casualty_beds",
+              "hidden": true
+            },
+            {
+              "id": "icu_beds",
+              "hidden": true
+            },
+            {
+              "id": "hdu_beds",
+              "hidden": true
+            },
+            {
+              "id": "isolation_beds",
+              "hidden": true
+            },
+            {
+              "id": "general_theatres",
+              "hidden": true
+            },
+            {
+              "id": "maternity_theatres",
+              "hidden": true
+            },
+            {
+              "id": "services",
+              "hidden": true
+            }
+          ],
+          "opacity": 1,
+          "disableOpacityControl": true
         },
         {
           "name": "Uganda VL Facilities",
@@ -288,13 +385,33 @@
                 }
               }
             },
-            { "id": "County", "hidden": true },
-            { "id": "County/district", "hidden": true },
-            { "id": "VL_Facility_Type", "hidden": true },
-            { "id": "Facility", "hidden": true },
-            { "id": "Lat", "hidden": true },
-            { "id": "Long", "hidden": true }
-          ]
+            {
+              "id": "County",
+              "hidden": true
+            },
+            {
+              "id": "County/district",
+              "hidden": true
+            },
+            {
+              "id": "VL_Facility_Type",
+              "hidden": true
+            },
+            {
+              "id": "Facility",
+              "hidden": true
+            },
+            {
+              "id": "Lat",
+              "hidden": true
+            },
+            {
+              "id": "Long",
+              "hidden": true
+            }
+          ],
+          "opacity": 1,
+          "disableOpacityControl": true
         },
         {
           "name": "Ethiopia VL Facilities",
@@ -372,13 +489,33 @@
                 }
               }
             },
-            { "id": "Hospital", "hidden": true },
-            { "id": "Latitude", "hidden": true },
-            { "id": "Longitude", "hidden": true },
-            { "id": "VL_Facility_Type", "hidden": true },
-            { "id": "New_Latitude", "hidden": true },
-            { "id": "New_Longitude", "hidden": true }
-          ]
+            {
+              "id": "Hospital",
+              "hidden": true
+            },
+            {
+              "id": "Latitude",
+              "hidden": true
+            },
+            {
+              "id": "Longitude",
+              "hidden": true
+            },
+            {
+              "id": "VL_Facility_Type",
+              "hidden": true
+            },
+            {
+              "id": "New_Latitude",
+              "hidden": true
+            },
+            {
+              "id": "New_Longitude",
+              "hidden": true
+            }
+          ],
+          "opacity": 1,
+          "disableOpacityControl": true
         }
       ]
     },
@@ -390,10 +527,14 @@
         {
           "name": "Baringo (2009-2025)",
           "type": "wms",
+          "opacity": 1,
+          "disableOpacityControl": true,
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:baringo_ndvi,Dudu:baringo_subcounties,Dudu:baringo_patients1,Dudu:baringo_facilities",
           "crs": "EPSG:3857",
-          "description": "Baringo County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Baringo County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Garissa (2018-2024)",
@@ -401,7 +542,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:garissa_ndvi,Dudu:garissa_subcounties,Dudu:garissa_patients1,Dudu:garissa_facilities",
           "crs": "EPSG:3857",
-          "description": "Garissa County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Garissa County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Isiolo (2019-2025)",
@@ -409,7 +554,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:isiolo_ndvi,Dudu:isiolo_subcounties,Dudu:isiolo_patients1,Dudu:isiolo_facilities",
           "crs": "EPSG:3857",
-          "description": "Isiolo County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Isiolo County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Kajiado (2021-2025)",
@@ -417,7 +566,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:kajiado_ndvi,Dudu:kajiado_subcounties,Dudu:kajiado_patients,Dudu:kajiado_facilities",
           "crs": "EPSG:3857",
-          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Kitui (2019-2025)",
@@ -425,7 +578,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:kitui_ndvi,Dudu:kitui_subcounties,Dudu:kitui_patients,Dudu:kitui_facilities",
           "crs": "EPSG:3857",
-          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Kitui County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Mandera (2020-2025)",
@@ -433,7 +590,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:mandera_ndvi,Dudu:mandera_subcounties,Dudu:mandera_patients,Dudu:mandera_facilities",
           "crs": "EPSG:3857",
-          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Mandera County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Marsabit (2017-2025)",
@@ -441,7 +602,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:marsabit_ndvi,Dudu:marsabit_subcounties,Dudu:marsabit_patients,Dudu:marsabit_facilities",
           "crs": "EPSG:3857",
-          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Marsabit County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Samburu (2019-2025)",
@@ -449,7 +614,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:samburu_ndvi,Dudu:samburu_subcounties,Dudu:samburu_patients",
           "crs": "EPSG:3857",
-          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Samburu County NDVI, subcounty boundaries and patients. Note: no VL diagnosis/treatment facilities in Samburu for this layer set.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Tharaka Nithi (2009-2025)",
@@ -457,7 +626,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:tharaka_nithi_ndvi,Dudu:tharaka_nithi_subcounties,Dudu:tharaka_nithi_patients,Dudu:tharaka_nithi_facilities",
           "crs": "EPSG:3857",
-          "description": "Kajiado County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Tharaka Nithi County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Turkana (2012-2025)",
@@ -465,7 +638,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:turkana_ndvi,Dudu:turkana_subcounties,Dudu:turkana_patients,Dudu:turkana_facilities",
           "crs": "EPSG:3857",
-          "description": "Turkana County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Turkana County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Wajir (2019-2025)",
@@ -473,7 +650,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:wajir_ndvi,Dudu:wajir_subcounties,Dudu:wajir_patients,Dudu:wajir_facilities",
           "crs": "EPSG:3857",
-          "description": "Wajir County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "Wajir County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "West Pokot (2019-2025)",
@@ -481,7 +662,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:west_pokot_ndvi,Dudu:west_pokot_subcounties,Dudu:west_pokot_patients,Dudu:west_pokot_facilities",
           "crs": "EPSG:3857",
-          "description": "West Pokot County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment."
+          "description": "West Pokot County NDVI, subcounty boundaries, patients and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         }
       ]
     },
@@ -496,7 +681,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:baringo_vl_hotspot,Dudu:baringo_wards,Dudu:baringo_facilities",
           "crs": "EPSG:3857",
-          "description": "Baringo County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "Baringo County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Garissa (2018-2024)",
@@ -504,7 +693,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:garissa_vl_hotspot,Dudu:garissa_wards,Dudu:garissa_facilities",
           "crs": "EPSG:3857",
-          "description": "Garissa County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "Garissa County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Isiolo (2019-2025)",
@@ -512,7 +705,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:isiolo_vl_hotspot,Dudu:isiolo_wards,Dudu:isiolo_facilities",
           "crs": "EPSG:3857",
-          "description": "Isiolo County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "Isiolo County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Kajiado (2021-2025)",
@@ -520,7 +717,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:kajiado_vl_hotspot,Dudu:kajiado_wards,Dudu:kajiado_facilities",
           "crs": "EPSG:3857",
-          "description": "Kajiado County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "Kajiado County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Kitui (2019-2025)",
@@ -528,7 +729,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:kitui_vl_hotspot,Dudu:kitui_wards,Dudu:kitui_facilities",
           "crs": "EPSG:3857",
-          "description": "Kitui County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "Kitui County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Mandera (2020-2025)",
@@ -536,7 +741,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:mandera_vl_hotspot,Dudu:mandera_wards,Dudu:mandera_facilities",
           "crs": "EPSG:3857",
-          "description": "Mandera County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "Mandera County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Marsabit (2017-2025)",
@@ -544,7 +753,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:marsabit_vl_hotspot,Dudu:marsabit_wards,Dudu:marsabit_facilities",
           "crs": "EPSG:3857",
-          "description": "Marsabit County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "Marsabit County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Samburu (2019-2025)",
@@ -552,7 +765,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:samburu_vl_hotspot,Dudu:samburu_wards",
           "crs": "EPSG:3857",
-          "description": "Samburu County VL endemicity hotspot (kernel density) and subcounty boundaries. Note: no VL diagnosis/treatment facilities in Samburu."
+          "description": "Samburu County VL endemicity hotspot (kernel density) and subcounty boundaries. Note: no VL diagnosis/treatment facilities in Samburu.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Tharaka Nithi (2009-2025)",
@@ -560,7 +777,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:Tharaka_Nithi_hotspot,Dudu:tharaka_nithi_wards,Dudu:tharaka_nithi_facilities",
           "crs": "EPSG:3857",
-          "description": "Tharaka Nithi County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "Tharaka Nithi County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Turkana (2012-2025)",
@@ -568,7 +789,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:Turkana_hotspot,Dudu:turkana_wards,Dudu:turkana_facilities",
           "crs": "EPSG:3857",
-          "description": "Turkana County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "Turkana County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "Wajir (2019-2025)",
@@ -576,7 +801,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:wajir_vl_hotspot,Dudu:wajir_wards,Dudu:wajir_facilities",
           "crs": "EPSG:3857",
-          "description": "Wajir County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "Wajir County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         },
         {
           "name": "West Pokot (2019-2025)",
@@ -584,7 +813,11 @@
           "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
           "layers": "Dudu:west_pokot_vl_hotspot,Dudu:west_pokot_wards,Dudu:west_pokot_facilities",
           "crs": "EPSG:3857",
-          "description": "West Pokot County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment."
+          "description": "West Pokot County VL endemicity hotspot (kernel density), subcounty boundaries and health facilities offering VL diagnosis and treatment.",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
         }
       ]
     },
@@ -593,14 +826,24 @@
       "type": "wms",
       "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
       "layers": "Dudu:kenya_ndvi,Dudu:kenya_subcounties1,Dudu:kenya_counties,Dudu:kenya_patients_national1,Dudu:kenya_facilities_national",
-      "crs": "EPSG:3857"
+      "crs": "EPSG:3857",
+      "opacity": 1,
+      "disableOpacityControl": true,
+      "allowFeaturePicking": false,
+      "description": "National VL map for Kenya showing NDVI, administrative boundaries, reported patient locations and health facilities offering VL diagnosis and treatment.",
+      "maximumLevel": 10
     },
     {
       "name": "VL Endemicity Heatmap",
       "type": "wms",
       "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
       "layers": "Dudu:kenya_uganda_hotspot,Dudu:kenya_patients_national,Dudu:uganda_patients_national",
-      "crs": "EPSG:3857"
+      "crs": "EPSG:3857",
+      "opacity": 1,
+      "disableOpacityControl": true,
+      "allowFeaturePicking": false,
+      "description": "Regional VL endemicity heatmap for Kenya and Uganda, overlaid with national patient locations to highlight cross-border hotspot patterns.",
+      "maximumLevel": 10
     }
   ],
   "homeCamera": {
@@ -611,6 +854,14 @@
   },
   "viewerMode": "2d",
   "baseMaps": {
+    "items": [
+      {
+        "item": {
+          "id": "basemap-openstreetmap",
+          "maximumLevel": 10
+        }
+      }
+    ],
     "defaultBaseMapId": "basemap-openstreetmap"
   }
 }
