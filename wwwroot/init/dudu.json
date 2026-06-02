@@ -823,15 +823,44 @@
     },
     {
       "name": "VL Patients Map",
-      "type": "wms",
-      "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
-      "layers": "Dudu:kenya_ndvi,Dudu:kenya_subcounties1,Dudu:kenya_counties,Dudu:kenya_patients_national1,Dudu:kenya_facilities_national",
-      "crs": "EPSG:3857",
-      "opacity": 1,
-      "disableOpacityControl": true,
-      "allowFeaturePicking": false,
       "description": "National VL map for Kenya showing NDVI, administrative boundaries, reported patient locations and health facilities offering VL diagnosis and treatment.",
-      "maximumLevel": 10
+      "type": "group",
+      "isOpen": false,
+      "members": [
+        {
+          "name": "Kenya Base Map (NDVI + Counties + Subcounties)",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:kenya_ndvi,Dudu:kenya_subcounties1,Dudu:kenya_counties",
+          "crs": "EPSG:3857",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
+        },
+        {
+          "name": "Kenya Patients",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:kenya_patients_national1",
+          "crs": "EPSG:3857",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
+        },
+        {
+          "name": "Kenya Facilities",
+          "type": "wms",
+          "url": "https://test-dmmg.icipe.org/geoserver/wms?version=1.1.1",
+          "layers": "Dudu:kenya_facilities_national",
+          "crs": "EPSG:3857",
+          "opacity": 1,
+          "disableOpacityControl": true,
+          "allowFeaturePicking": false,
+          "maximumLevel": 10
+        }
+      ]
     },
     {
       "name": "VL Endemicity Heatmap",
